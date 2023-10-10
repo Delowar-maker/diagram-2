@@ -1,0 +1,144 @@
+import { PrismaClient } from "@prisma/client";
+import { NextResponse } from "next/server";
+
+// export async function POST(req, res) {
+//   BigInt.prototype.toJSON = function () {
+//     return this.toString();
+//   };
+//   try {
+//     const prisma = new PrismaClient();
+//     const reqBody = await req.json();
+
+//     let result = await prisma.user.create({
+//       data: reqBody,
+//     });
+
+//     return NextResponse.json({ status: "success", data: result });
+//   } catch (error) {
+//     return NextResponse.json({ status: "fail", data: error.toString() });
+//   }
+// }
+
+//Notes:
+
+//  BigInt.prototype.toJSON = function () {
+//     return this.toString();
+//   };
+
+//End
+
+//CreateMany
+
+// export async function POST(req, res) {
+//   BigInt.prototype.toJSON = function () {
+//     return this.toString();
+//   };
+//   try {
+//     const prisma = new PrismaClient();
+//     //   const reqBody = await req.json();
+
+//     let result = await prisma.user.createMany({
+//       data: [
+        
+//          { fristName: "1",middleName: "jgggon",lastName: "pavon",mobile: "017942222",intro: "d05dd",profile: "ee05bee", },
+//          { fristName: "2",middleName: "jgggon",lastName: "pavon",mobile: "017942222",intro: "d05dd",profile: "ee05bee", },
+//          { fristName: "3",middleName: "jgggon",lastName: "pavon",mobile: "017942222",intro: "d05dd",profile: "ee05bee", },
+//          { fristName: "4",middleName: "jgggon",lastName: "pavon",mobile: "017942222",intro: "d05dd",profile: "ee05bee", }
+       
+//       ],
+//     });
+
+//     return NextResponse.json({ status: "success", data: result });
+//   } catch (error) {
+//     return NextResponse.json({ status: "fail", data: error.toString() });
+//   }
+// }
+
+
+// Update
+
+
+export async function POST(req, res) {
+  
+  try {
+    const userId = BigInt(1)
+    const prisma = new PrismaClient();
+    
+      // const reqBody = await req.json();
+
+    const result = await prisma.user.update({
+        where: { id:userId},       
+
+
+        data:{fristName:"orange"}
+      })
+      
+    return NextResponse.json({ status: "success", data: result });
+  } catch (error) {
+    return NextResponse.json({ status: "fail", data: error.toString() });
+    
+  }
+}
+
+
+
+
+//update
+
+// const userId = BigInt(1); // Make sure the ID is of type BigInt
+
+// // Update the user's first name
+// const updatedUser = await prisma.user.update({
+//   where: { id: userId },
+//   data: {
+//     firstName: "orange", // Fix the field name to "firstName"
+//   },
+// });
+
+// console.log(updatedUser);
+// delete
+
+// const prisma = new PrismaClient();
+
+// // Convert an integer to a BigInt
+// const userId = BigInt(9);
+
+// // Now, you can use userId in the delete operation
+// await prisma.user.delete({
+//   where: { id: userId },
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const prisma = new PrismaClient();
+
+// // Convert an integer to a BigInt
+// const userId = BigInt(9);
+
+// // Now, you can use userId in the delete operation
+// try {
+
+//   const result = await prisma.user.delete({
+//   where: { id: userId },
+
+// });
+// return NextResponse.json({ status: "success", data: result });
+// } catch (error) {
+//   return NextResponse.json({ status: "fail", data: error.toString() });
+// }
